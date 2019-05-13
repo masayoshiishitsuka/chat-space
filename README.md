@@ -1,28 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # DB設計
 
 
@@ -36,25 +11,25 @@ Things you may want to cover:
 ### Assosiation
 - has_many :groups through :members
 - has_many :members
-- has-many :messages
+- has_many :messages
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|nill:false|
+|name|string|null:false|
 
 ### Assosiation
 - has_many :users through :members
 - has_many :members
-- has-many :messages
+- has_many :messages
 
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|grouo_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :group
@@ -64,10 +39,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|nill: true|
-|image|string|nill: true|
-|group_id|interger|nill: false, index: true|
-|user_id|interger|nill: false, index: true|
+|body|text|null: true|
+|image|string|null: true|
+|group_id|references|null: false, index: true, foreign_key: true|
+|user_id|references|null: false, index: true, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
