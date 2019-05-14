@@ -17,5 +17,59 @@
         padding: 0 20px;
       }
     }
+    .groups{
+      .group{
+        box-sizing: border-box;
+        padding: 20px;
+        &__name{
+          font-size: 15px;
+          // font-weight: bold;
+        }
+        &__message{
+          font-size: 11px;
+          margin-top: 5px;
+          // font-weight: bold;
+        }
+      }
+    }
+  }
+  .chat-main{
+    box-sizing: border-box;
+    display: block;
+    background-color: aqua;
+    float: none;
+    width: auto;
+    height: 100vh;
+    .main-hedder{
+      display: block;
+      float: none;
+      width: auto;
+      height : 100px;
+      background-color: green;
+      .current-group{
+        // background-color: blue;
+        float: left;
+        width: auto;
+        margin-left: 40px;
+        &__name{
+          font-size: 20px;
+          font-weight: bold;
+          margin: 35px 0 15px;
+        }
+        &__menber{
+          font-size: 12px;
+        }
+      }
+      .edit-button{
+        margin-top: 28px;
+        padding: 0 20px;
+        height: 40px;
+        float: right;
+        text-align:center;
+        line-height: 40px;
+        border: solid 1px aquamarine;
+        color: aquamarine;
+      }
+    }
   }
 }
