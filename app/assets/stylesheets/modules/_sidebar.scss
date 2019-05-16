@@ -1,0 +1,51 @@
+.sidebar{
+  box-sizing: border-box;
+  background-color: #2f3e51;
+  height: 100vh;
+  width: 300px;
+  float: left;
+  color: $white;
+  .header{
+    background-color: #253141;
+    height: 100px;
+    padding:0 20px; 
+    line-height: 100px;
+    text-align: left;
+    &__name{
+      display: inline-block;
+      padding: 0 20px;
+      float: left;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__lists{
+      box-sizing: border-box;
+      display: inline-block;
+      float: right;
+      .list{
+        display: inline-block;
+      }
+      .icon{
+        color: $white;
+      }
+    }
+  }
+  .groups{
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    width: 300px;
+    .group{
+      box-sizing: border-box;
+      padding: 20px;
+      &__name{
+        font-size: 15px;
+        font-weight: bold;
+      }
+      &__message{
+        margin-top: 5px;
+        font-size: 11px;
+        font-weight: bold;
+      }
+    }
+  }
+}
