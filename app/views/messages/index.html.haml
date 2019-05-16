@@ -1,8 +1,16 @@
 .wrapper
-  -# .header
   .sidebar
-    .side-header
-      .user_name name
+    .header
+      %h3.header__name 
+      name
+      %ul.header__lists
+        %li.list
+          = link_to do
+            = fa_icon 'pencil-square-o', class: 'icon'
+        %li.list
+          = link_to do
+            = fa_icon 'cog', class: 'icon'
+
     .groups 
       .group
         .group__name test-group
@@ -19,3 +27,20 @@
         .current-group__name test-group
         .current-group__menber test ,sample
       .edit-button Edit
+    .chat-box
+      .message
+        .message__speaker masayoshi
+        .message__time 2019.5/15.20:15:03
+        .message__text Hello World
+      .message
+        .message__speaker masayoshi
+        .message__time 2019.5/15.20:15:03
+        .message__text bye World
+    .form
+      %form
+        .new-message 
+          .text-box type a message
+          %label.upload-label
+            = fa_icon 'picture-o' , class: 'icon'
+            %input.hidden{type: 'file'}
+          .send-button SEND
