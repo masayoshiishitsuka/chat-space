@@ -31,6 +31,7 @@
     }
   }
   .groups{
+    text-decoration: none;
     box-sizing: border-box;
     height: calc(100vh - 100px);
     width: 300px;
@@ -40,11 +41,13 @@
       &__name{
         font-size: 15px;
         font-weight: bold;
+        color: $white;
       }
       &__message{
         margin-top: 5px;
         font-size: 11px;
         font-weight: bold;
+        color: $white;
       }
     }
   }
