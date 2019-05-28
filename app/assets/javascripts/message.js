@@ -30,7 +30,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-box').append(html);
-      $('.text-box').reset()
+      $('#new_message')[0].reset();
       $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
