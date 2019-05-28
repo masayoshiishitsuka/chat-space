@@ -17,10 +17,8 @@ $(function(){
   }
   $('#new_message').on("submit", function(e){
     e.preventDefault();
-    console.log("message")
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    console.log("koko")
     $.ajax({
       url: url,
       type: "POST",
@@ -30,10 +28,9 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log("done")
       var html = buildHTML(data);
       $('.chat-box').append(html);
-      $('.text-box').val('')
+      $('.text-box').reset()
       $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
