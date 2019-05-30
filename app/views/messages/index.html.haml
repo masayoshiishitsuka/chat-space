@@ -28,7 +28,8 @@
         .member
           - @group.group_users.each do |group_user|
             = group_user.user.name
-    .edit-button Edit
+    .edit-button
+      = link_to "Edit", edit_group_path(params[:group_id]), method: :get
   .chat-box
     .message
       = render @messages
