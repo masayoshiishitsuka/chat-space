@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message) {
     image = ( message.image ) ? `<img class= "lower-message__image" src=${message.image} >` : "";
-    var html = `<div class= message>
+    var html = `<div class= message data-id= ${message.id} >
                   <div class= message__speaker>
                     ${message.user_name}
                   </div>
@@ -40,5 +40,27 @@ $(function(){
       $('.send-button').prop('disabled',false);
     })
   })
+  var reloadMessages = function() {
+    var last_message_id = $('.message').last().data('id');
+    $.ajax({
+      url: '/groups/:group_id/api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log(messages)
+      var insertHTML = '';
+      messages.forEach(function(message){
+        console.log('hi')
+        insertHTML = buildHTML(message)
+        $('.chat-box').append(insertHTML);
+        $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
+      })
+    })
+    .fail(function() {
+      console.log('error');
+    })
+  };
+  setInterval(reloadMessages, 5000);
 });
-

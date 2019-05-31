@@ -31,8 +31,7 @@
     .edit-button
       = link_to "Edit", edit_group_path(params[:group_id]), method: :get
   .chat-box
-    .message
-      = render @messages
+    = render @messages
   .form
     .new-message
       = form_for [@group, @message] do |f|
