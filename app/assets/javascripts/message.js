@@ -49,17 +49,15 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log(messages)
       var insertHTML = '';
       messages.forEach(function(message){
-        console.log('hi')
         insertHTML = buildHTML(message)
         $('.chat-box').append(insertHTML);
         $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
       })
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     })
   };
   setInterval(reloadMessages, 5000);
