@@ -41,25 +41,27 @@ $(function(){
     })
   })
   var reloadMessages = function() {
-    var last_message_id = $('.message').last().data('id');
-    var group_id = $('.group').data('group-id')
-    $.ajax({
-      url: "/groups/" + group_id + "/api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      messages.forEach(function(message){
-        insertHTML = buildHTML(message)
-        $('.chat-box').append(insertHTML);
-        $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
+    if (location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message').last().data('id');
+      var group_id = $('.group').data('group-id')
+      $.ajax({
+        url: "/groups/" + group_id + "/api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
       })
-    })
-    .fail(function() {
-      console.log('error');
-    })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message)
+          $('.chat-box').append(insertHTML);
+          $('.chat-box').animate({scrollTop: $('.chat-box')[0].scrollHeight}, 'fast');
+        })
+      })
+      .fail(function() {
+        console.log('error');
+      })
+    }
   };
   setInterval(reloadMessages, 5000);
 });
