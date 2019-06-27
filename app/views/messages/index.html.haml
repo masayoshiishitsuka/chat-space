@@ -34,6 +34,9 @@
     = render @messages
   .form
     .new-message
-      = form_for do |f|
+      = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'text-box', placeholder: 'type a message' 
+        = f.label :image, class: 'upload-label' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'send-button'
